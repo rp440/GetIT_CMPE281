@@ -1,0 +1,28 @@
+{
+  "name": "Dropbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "drag.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js --ignore client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws": "0.0.3-2",
+    "aws-cloudfront-sign": "^2.2.0",
+    "aws-sdk": "^2.999.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "hbs": "^4.1.2",
+    "multer": "^1.4.3",
+    "multer-s3": "^2.9.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.12",
+    "sdk": "^0.5.0"
+  }
+}
