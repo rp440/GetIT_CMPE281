@@ -28,7 +28,7 @@ router.post("/register", registerController.register);
 router.post("/authenticate", authenticateController.authenticate);
 
 //Get filenames
-router.get("http://13.57.23.139:3000/getContent/:uname", (req, res) => {
+router.get("/getContent/:uname", (req, res) => {
   var params = { ...bucketParams};
   if (req.params["uname"] == "allusers"){ //admin
     s3.listObjects(params, function (err, data) {
@@ -77,7 +77,7 @@ var upload = multer({
     },
   }),
 });
-router.post("http://13.57.23.139:3000/uploadFile/:uname", upload.any(), function (req, res, next) {
+router.post("/uploadFile/:uname", upload.any(), function (req, res, next) {
   res.status(200).json({
     success: true,
   });
@@ -101,7 +101,7 @@ function getFileLink(filename) {
 }
 
 //download
-router.get("http://13.57.23.139:3000/downloadFile/:uname/:fileName", async function (req, res) {
+router.get("/downloadFile/:uname/:fileName", async function (req, res) {
   console.log("in get");
   if (req.params["uname"] == "allusers") //admin
   {
@@ -120,7 +120,7 @@ router.get("http://13.57.23.139:3000/downloadFile/:uname/:fileName", async funct
 });
 
 //for delete
-router.get("http://13.57.23.139:3000/deleteFile/:uname/:fileName", function (req, res) {
+router.get("/deleteFile/:uname/:fileName", function (req, res) {
   // console.log("delete node 1");
   console.log(req);
   if (req.params["uname"] == "allusers") //admin
