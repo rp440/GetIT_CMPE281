@@ -102,8 +102,8 @@ function getFileLink(filename) {
 
 //download
 router.get("/downloadFile/:uname/:fileName", async function (req, res) {
-  console.log("in get");
   try{
+  console.log("in get");
   if (req.params["uname"] == "allusers") //admin
   {
 
@@ -121,7 +121,7 @@ router.get("/downloadFile/:uname/:fileName", async function (req, res) {
       res.end();}
     }
     catch (err) {
-        next(err);
+        console.error(err.message);
       }
 });
 
