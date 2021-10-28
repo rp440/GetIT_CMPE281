@@ -105,17 +105,28 @@ router.get("/downloadFile/:uname/:fileName", async function (req, res) {
   console.log("in get");
   if (req.params["uname"] == "allusers") //admin
   {
-    var file = await getFileLink(req.params.fileName);
-    console.log("all users download")
-    console.log(file);
-    res.send(file);
-    res.end();
+    try{
+      var file = await getFileLink(req.params.fileName);
+      console.log("all users download")
+      console.log(file);
+      res.send(file);
+      res.end();
+    }
+    catch (err) {
+      next(err);
+    }
+
   }
   else {
-  var file = await getFileLink(req.params.uname + "/" + req.params.fileName);
-  console.log(file);
-  res.send(file);
-  res.end();
+    try{
+      var file = await getFileLink(req.params.uname + "/" + req.params.fileName);
+      console.log(file);
+      res.send(file);
+      res.end();}
+
+    catch (err) {
+        next(err);
+      }
 }
 });
 
