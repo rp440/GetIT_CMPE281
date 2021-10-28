@@ -10,7 +10,7 @@ const db = mysql.createConnection({
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
 });
-console.log("Auth="db)
+console.log("Auth=", db)
 
 //process.env.HOST
 db.connect(function (err) {
