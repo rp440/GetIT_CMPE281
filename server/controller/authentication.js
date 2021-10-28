@@ -10,12 +10,12 @@ const db = mysql.createConnection({
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
 });
-console.log(db)
+console.log("Auth="db)
 
 //process.env.HOST
 db.connect(function (err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Auth Connected!");
 });
 
 module.exports.authenticate = function (req, res) {

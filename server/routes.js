@@ -21,14 +21,14 @@ var bucketParams = {
   Bucket: "filesbuk",
 };
 
-router.get("/", (req, res) => {});
+router.get("http://13.57.23.139:3000/", (req, res) => {"Server Runs"});
 
 /* route to handle login and registration */
-router.post("/register", registerController.register);
-router.post("/authenticate", authenticateController.authenticate);
+router.post("http://13.57.23.139:3000/register", registerController.register);
+router.post("http://13.57.23.139:3000/authenticate", authenticateController.authenticate);
 
 //Get filenames
-router.get("/getContent/:uname", (req, res) => {
+router.get("http://13.57.23.139:3000/getContent/:uname", (req, res) => {
   var params = { ...bucketParams};
   if (req.params["uname"] == "allusers"){ //admin
     s3.listObjects(params, function (err, data) {
@@ -77,7 +77,7 @@ var upload = multer({
     },
   }),
 });
-router.post("/uploadFile/:uname", upload.any(), function (req, res, next) {
+router.post("http://13.57.23.139:3000/uploadFile/:uname", upload.any(), function (req, res, next) {
   res.status(200).json({
     success: true,
   });
@@ -101,7 +101,7 @@ function getFileLink(filename) {
 }
 
 //download
-router.get("/downloadFile/:uname/:fileName", async function (req, res) {
+router.get("http://13.57.23.139:3000/downloadFile/:uname/:fileName", async function (req, res) {
   console.log("in get");
   if (req.params["uname"] == "allusers") //admin
   {
@@ -120,7 +120,7 @@ router.get("/downloadFile/:uname/:fileName", async function (req, res) {
 });
 
 //for delete
-router.get("/deleteFile/:uname/:fileName", function (req, res) {
+router.get("http://13.57.23.139:3000/deleteFile/:uname/:fileName", function (req, res) {
   // console.log("delete node 1");
   console.log(req);
   if (req.params["uname"] == "allusers") //admin

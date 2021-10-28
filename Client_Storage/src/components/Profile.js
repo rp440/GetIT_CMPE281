@@ -30,7 +30,7 @@ class Profile extends Component {
     console.log("files callled");
     let userName = this.props.uname;
     axios
-      .get("/getContent/" + userName)
+      .get("http://13.57.23.139:5000/getContent/" + userName)
       .then((res) => {
         console.log(res.data);
         this.setState({
@@ -53,7 +53,7 @@ class Profile extends Component {
         file = userName + "/" + fileName
       }
       await axios
-        .get("/downloadFile/"+ file)
+        .get("http://13.57.23.139:5000/downloadFile/"+ file)
         .then((res) => {
           console.log(res.data);
           saveAs("https://" + res.data, fileName);
@@ -75,7 +75,7 @@ class Profile extends Component {
       }
          await axios
          // console.log("filename =",fileName)
-        .get("/deleteFile/" + file)
+        .get("http://13.57.23.139:5000/deleteFile/" + file)
         .then((res) => {
           console.log(res);
             this.getFiles();
@@ -110,7 +110,7 @@ class Profile extends Component {
     // Send formData object
     let userName = this.props.uname;
     axios
-      .post("/uploadFile/" + userName, formData)
+      .post("http://13.57.23.139:5000/uploadFile/" + userName, formData)
       .then((res) => {
         console.log(res);
         if (res.data.success) {

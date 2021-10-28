@@ -84,7 +84,7 @@ class Login extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
     };
-    fetch("/authenticate", requestOptions)
+    fetch("http://13.57.23.139:5000/authenticate", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
@@ -108,7 +108,7 @@ class Login extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user2),
     };
-    fetch("/register", requestOptions)
+    fetch("http://13.57.23.139:5000/register", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {

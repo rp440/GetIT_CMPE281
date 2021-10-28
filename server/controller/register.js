@@ -1,19 +1,19 @@
 var mysql = require("mysql");
 
 const db = mysql.createConnection({
-  host: "fliesbuk.czwcgzfba7cl.us-west-1.rds.amazonaws.com",
-  user: "admin",
-  password: "123456781",
-  database: "sys",
   ssl: true,
   port: 3306,
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
 });
-console.log(db)
+//console.log("Reg=", db)
 
 // process.env.HOST
 db.connect(function (err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Reg Connected!");
 });
 
 module.exports.register = function (req, res) {
