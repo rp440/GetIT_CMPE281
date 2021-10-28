@@ -24,8 +24,8 @@ var bucketParams = {
 router.get("http://13.57.23.139:3000/", (req, res) => {"Server Runs"});
 
 /* route to handle login and registration */
-router.post("http://13.57.23.139:5000/register", registerController.register);
-router.post("http://13.57.23.139:5000/authenticate", authenticateController.authenticate);
+router.post("/register", registerController.register);
+router.post("/authenticate", authenticateController.authenticate);
 
 //Get filenames
 router.get("http://13.57.23.139:3000/getContent/:uname", (req, res) => {
